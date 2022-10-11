@@ -12,14 +12,12 @@ describe('My Test Suite', () => {
   
 
   it('Verify the title of page', () => {
-
     cy.visit('https://demo.nopcommerce.com');
     cy.title().should('eq','nopCommerce demo store' );
   })
 
   it('e2e test case', () => {
     cy.visit('https://demo.nopcommerce.com');
-    
     cy.get(selectors.searchBox).type(productName);
     cy.get(selectors.wrapperMenu).click();
     cy.get(selectors.quantityInput).clear().type(invalidProductQuantity);
