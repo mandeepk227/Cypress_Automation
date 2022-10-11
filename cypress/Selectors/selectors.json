@@ -1,0 +1,10 @@
+{
+    "searchBox" : ".search-box-text",
+    "wrapperMenu": ".ui-menu-item-wrapper",
+    "quantityInput": ".qty-input",
+    "addToCartButton": ".add-to-cart-button",
+    "error": ".error",
+    "success": ".success"
+
+
+}
