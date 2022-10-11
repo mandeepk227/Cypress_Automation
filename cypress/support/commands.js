@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('waitApiResponseStatusCode', (alias, statusCode, options = {}) => {
+
+    cy.wait(alias, options).then((interception) => {
+        cy.log("**x-miniprofiler-ids:**"+ JSON.stringify(interception.response.headers['x-miniprofiler-ids']))
+        cy.get(alias).its('response.statusCode').should('eq', statusCode)
+    })
+
+    cy.log({
+        name: 'waitApiResponseStatusCode',
+    })
+});
+
+Cypress.Commands.add('addproducttocart', (alias = 'addproducttocart') => {
+
+    Cypress.log({
+        name: 'addproducttocart'
+    })
+
+    cy.intercept('POST', `/addproducttocart/**`, {statusCode: 200}).as(alias)
+});
