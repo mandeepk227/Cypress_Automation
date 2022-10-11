@@ -12,7 +12,9 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   e2e: {
     setupNodeEvents(on, config) {
+      return require('./cypress/plugins/index.js')
       // implement node event listeners here
+      // set CYPRESS_RECORD_KEY= 07115e55-8b2d-446b-a90c-03c3c0062102
     },
   },
 });
