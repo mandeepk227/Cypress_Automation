@@ -16,5 +16,10 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+/** API INTERCEPT COMMANDS */
+
+import '../components/api/addToCart-api'
+import '../components/api/wait-api-response-status-code'
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
