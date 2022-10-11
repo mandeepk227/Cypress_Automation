@@ -28,6 +28,7 @@ describe('My Test Suite', () => {
     cy.get(selectors.error).contains(errorMsg).should('be.visible');
     cy.get(selectors.quantityInput).clear().type(validProductQuantity);
     cy.addproducttocart()
+    cy.get(selectors.addToCartButton).scrollIntoView()
     cy.get(selectors.addToCartButton).click();
     cy.waitApiResponseStatusCode('@addproducttocart', 200)
 
