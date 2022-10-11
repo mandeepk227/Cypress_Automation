@@ -24,7 +24,7 @@ describe('My Test Suite', () => {
     cy.get(selectors.error).contains(errorMsg).should('be.visible');
     cy.get(selectors.quantityInput).clear().type(validProductQuantity);
     cy.get(selectors.addToCartButton).click();
-    cy.get(selectors.success).contains(successMsg).should('be.visible');
+    cy.get(selectors.success).contains(successMsg).should('be.visible')
 
   })
 
