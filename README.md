@@ -7,4 +7,6 @@ Component-based GUI tests using the [cypress.io](https://www.cypress.io/) framew
 3. Go to the project folder and install dependencies by executing `npm install` terminal
 
 ## Running tests
-Execute the following commands
+Execute the below command to open cypress test runner
+
+### npx cypress open
