@@ -22,7 +22,7 @@ describe('My Test Suite', () => {
     
     cy.get(selectors.searchBox).type(productName);
     cy.get(selectors.wrapperMenu).click();
-    cy.get(selectors.quantityInput).clear().type(invalidProductQuantity);
+    cy.get(selectors.quantityInput).scrollIntoView().clear().type(invalidProductQuantity);
     cy.get(selectors.addToCartButton).click();
     cy.get(selectors.error).contains(errorMsg).should('be.visible');
     cy.get(selectors.quantityInput).clear().type(validProductQuantity);
