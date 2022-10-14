@@ -4,7 +4,8 @@
     "quantityInput": ".qty-input",
     "addToCartButton": ".add-to-cart-button",
     "error": ".error",
-    "success": ".success"
-
-
+    "success": ".success",
+    "flyCart": ".flyout-cart",
+    "cartButton": ".cart-button",
+    "productName": ".product-name"
 }
