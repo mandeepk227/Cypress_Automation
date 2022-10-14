@@ -20,7 +20,7 @@ describe('My Test Suite', () => {
     cy.get(selectors.quantityInput).scrollIntoView().clear().type(invalidProductQuantity);
     cy.get(selectors.addToCartButton).click();
     cy.get(selectors.error).contains(errorMsg).should('be.visible');
-    cy.get('.error').find('.close').click({force:true});
+    cy.get('.error').find('.close').click();
   })
 
   it('Verify error message by adding valid product quantity ', () => {
