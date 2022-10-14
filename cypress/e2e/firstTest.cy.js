@@ -26,9 +26,9 @@ describe('My Test Suite', () => {
   it('Verify error message by adding valid product quantity ', () => {
     cy.get(selectors.quantityInput).scrollIntoView().clear().type(validProductQuantity);
     cy.get(selectors.addToCartButton).click();
-    cy.get('.success').should('be.visible');
-    cy.get('.flyout-cart').invoke('show').find('.cart-button').click();
-    cy.get('.product-name').should('contain', productName);
+    cy.get(selectors.success).contains(successMsg).should('be.visible');
+    cy.get(selectors.flyCart).invoke('show').find(selectors.cartButton).click();
+    cy.get(selectors.productName).should('contain', productName);
   })
 
 })
