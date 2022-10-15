@@ -4,5 +4,5 @@ Cypress.Commands.add('postApiaddproducttocart', (alias = 'postApiaddproducttocar
         name: 'postApiaddproducttocart'
     })
 
-    cy.intercept('POST', `/addproducttocart/**`, {statusCode: 200}).as(alias)
+    cy.intercept('POST', `/addproducttocart/**`).as(alias)
 });
