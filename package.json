@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/mandeepk227/Cypress_Automation#readme",
   "devDependencies": {
-    "cypress": "^10.9.0"
+    "cypress": "^10.10.0"
   },
   "dependencies": {
     "cypress-file-upload": "^5.0.8",
