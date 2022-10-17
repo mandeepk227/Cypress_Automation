@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
     run-shell-command:
+        container: cypress/browsers:node12.16.2-chrome81-ff75
         runs-on: ubuntu-latest
         steps:
           - name: echo a string
@@ -13,6 +14,9 @@ jobs:
                 node -v
                 npm -v
                 pwd
-                npm install
-                npx cypress run --browser chrome
+          - name: python Commands
+            run: |
+                import platform
+                print(platform.processor())
+            shell: python
     
