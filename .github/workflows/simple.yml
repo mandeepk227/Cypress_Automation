@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
     run-shell-command:
+        container: cypress/browsers:node12.16.2-chrome81-ff75
         runs-on: ubuntu-latest
         steps:
           - name: echo a string
@@ -12,3 +13,32 @@ jobs:
             run: |
                 node -v
                 npm -v
+                pwd
+          - name: python Commands
+            run: |
+                import platform
+                print(platform.processor())
+            shell: python
+    run-windows-commands:
+        runs-on: windows-latest
+        steps:
+          - name: Directory Powershell
+            run: Get-Location
+    cypress-e2e-chrome81:
+        name: Run on Chrome 81
+        runs-on: ubuntu-18.04
+        container: cypress/browsers:node12.16.2-chrome81-ff75
+        steps:
+            - uses: actions/checkout@v2
+      
+            - name: Install a project with a clean slate
+              run: |
+                  npm ci
+                  $(npm bin)/cypress cache path
+                  $(npm bin)/cypress cache list
+                  $(npm bin)/cypress verify
+      
+            - name: Run Cypress tests
+              run: npm run record:test
+              continue-on-error: true     
+    
