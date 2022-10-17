@@ -39,6 +39,6 @@ jobs:
                   $(npm bin)/cypress verify
       
             - name: Run Cypress tests
-              run: npx run recordtest
+              run: npm run record:test
               continue-on-error: true     
     
