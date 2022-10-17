@@ -26,3 +26,24 @@
 
 import 'cypress-wait-until';
 import 'cypress-file-upload';
+
+Cypress.Commands.add("LoginAPI", ()=>{
+
+    cy.request({
+        method: 'POST',
+        url: 'https://rahulshettyacademy.com/api/ecom/auth/login',
+        body:{userEmail: "sarao.mandeep227@gmail.com", userPassword: "India@1234"}
+    }).then((res)=> {
+        expect(res.status).to.eq(200);
+        Cypress.env('token', res.body.token);
+
+        cy.visit('https://rahulshettyacademy.com/client',
+        {
+            onBeforeLoad : function(window)
+            {
+                window.localStorage.setItem('token', Cypress.env('token'))
+            }
+        })
+
+    })
+})
