@@ -13,4 +13,6 @@ jobs:
                 node -v
                 npm -v
                 pwd
+                npm install
+                npx cypress run --browser chrome
     
