@@ -25,7 +25,9 @@ jobs:
           - name: Directory Powershell
             run: Get-Location
           - name: npmInstall
-            run: npm install
+            run: |
+                cd ..
+                npm install
           - name: cypressRun
             run: npx cypress run
     
