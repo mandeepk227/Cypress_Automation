@@ -20,5 +20,5 @@ jobs:
           $(npm bin)/cypress verify
 
       - name: Run Cypress tests
-        run: npm run record:test ${{CYPRESS_DASHBOARD_TOKEN}}
+        run: npm run record:test ${CYPRESS_DASHBOARD_TOKEN}
         continue-on-error: true
