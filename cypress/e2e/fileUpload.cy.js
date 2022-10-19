@@ -1,7 +1,7 @@
 describe("file upload", () => {
   const file = "img.jpg";
 
-  it("file upload verified", () => {
+  it.skip("file upload verified", () => {
     cy.visit("https://cgi-lib.berkeley.edu/ex/fup.html");
     cy.get('input[name="upfile"]').attachFile(file);
     cy.get('[type="submit"]').click();

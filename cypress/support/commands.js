@@ -46,3 +46,25 @@ Cypress.Commands.add("LoginAPI", () => {
     });
   });
 });
+
+/**
+ *Adding details to body
+ *@example
+ *  const body = {
+ *        client_id: " ",
+ *        client_secret: " ",
+ *        grant_type: " ",
+ *        }
+ *
+ */
+Cypress.Commands.add("LoginCoopApp", (body) => {
+  cy.request({
+    method: "POST",
+    url: "http://coop.apps.symfonycasts.com/token",
+    form: true,
+    body: body,
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+    Cypress.env("coopAppToken", response.body.access_token);
+  });
+});

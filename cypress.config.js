@@ -10,6 +10,7 @@ module.exports = defineConfig({
   video: true,
   retries:1,
   chromeWebSecurity: false,
+  env:{},
   e2e: {
     setupNodeEvents(on, config) {
       return require('./cypress/plugins/index.js')
