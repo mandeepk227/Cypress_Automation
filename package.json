@@ -6,7 +6,7 @@
   "scripts": {
     "test": "node_modules\\.bin\\cypress run ",
     "cy:open": "cypress open --config-file ./cypress.config.js",
-    "record:test": "cypress run --record --key 07115e55-8b2d-446b-a90c-03c3c0062102"
+    "record:test": "cypress run --record --key"
   },
   "repository": {
     "type": "git",
