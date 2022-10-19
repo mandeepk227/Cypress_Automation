@@ -1,28 +1,24 @@
 name: Shell Commands
 
 on: [push]
+env:
+  CYPRESS_DASHBOARD_TOKEN: ${{secrets.CYPRESS_DASHBOARD_TOKEN}}
 
 jobs:
-    run-windows-commands:
-        runs-on: windows-latest
-        steps:
-          - name: Directory Powershell
-            run: Get-Location
-    cypress-e2e-chrome81:
-        name: Run on Chrome 81
-        runs-on: ubuntu-18.04
-        container: cypress/browsers:node12.16.2-chrome81-ff75
-        steps:
-            - uses: actions/checkout@v2
-      
-            - name: Install a project with a clean slate
-              run: |
-                  npm ci
-                  $(npm bin)/cypress cache path
-                  $(npm bin)/cypress cache list
-                  $(npm bin)/cypress verify
-      
-            - name: Run Cypress tests
-              run: npm run record:test
-              continue-on-error: true     
-    
+  cypress-e2e-chrome81:
+    name: Run on Chrome 81
+    runs-on: ubuntu-18.04
+    container: cypress/browsers:node12.16.2-chrome81-ff75
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install a project with a clean slate
+        run: |
+          npm ci
+          $(npm bin)/cypress cache path
+          $(npm bin)/cypress cache list
+          $(npm bin)/cypress verify
+
+      - name: Run Cypress tests
+        run: npm run record:test ${{CYPRESS_DASHBOARD_TOKEN}}
+        continue-on-error: true
