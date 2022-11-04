@@ -1,7 +1,7 @@
 describe("user login failed", () => {
   const url = "https://www.flipkart.com/";
   const email = "mandeep227@gmail.com";
-  const password = "11155588895";
+  const password = "904168562588";
 
   it("login failed", () => {
     cy.visit(url);
